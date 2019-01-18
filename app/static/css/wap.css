@@ -1,0 +1,149 @@
+/*初始化样式*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, input {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: normal;
+    vertical-align: middle;
+}
+html, body {
+    width: 100%;
+    height:100%;
+    font-family:"微软雅黑", arial, sans-serif, helvetica ,'Helvetica Neue';
+    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+}
+html {/*解决chrome浏览器下字体不能小于12px*/
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+          text-size-adjust: none;
+}
+body {
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    line-height: 1;
+}
+em{
+	font-style: normal;
+}
+em,i,span{
+	display:inline-block;
+}
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+    display: block;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+a {
+    color: #7e8c8d;
+    text-decoration: none;
+    -webkit-backface-visibility: hidden;
+}
+li {
+    list-style: none;
+}
+/*消除iphone手机input自带的样式和点击高亮*/
+input[type="submit"], input[type="reset"], input[type="button"], input[type=date], button, select, input[type=text] {
+    -webkit-appearance: none;
+        -moz-appearance: none;
+            appearance: none;
+            cursor: pointer;
+  	tap-highlight-color: transparent !important;
+}
+
+input[type="text"], textarea {
+    outline: none;
+}
+button, textarea {
+    border: none;
+}
+
+a, input[type=text], select, input[type=password], textarea {
+  tap-highlight-color: transparent !important;
+}
+hr {
+    border: none;
+    background-color: #edebeb;
+    height: 0.02rem;
+}
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: block;
+  line-height: 0;
+  visibility: hidden;
+  height: 0;
+}
+.clearfix {
+  zoom: 1;
+}
+
+.f_r {float: right}
+.f_l {float: left}
+.d_in_b {display: inline-block}
+.d_b {display: block}
+.d_in {display: inline}
+.d_hide {display: none}
+
+.font_bold {font-weight: bold}
+.text_c {text-align: center}
+
+.line_1 {
+  width:100%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  -o-text-overflow:ellipsis;
+  -webkit-text-overflow:ellipsis;
+  -moz-text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.line_2 {
+  width:100%;
+  word-break:break-all;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.line_3 {
+  width:100%;
+  word-break:break-all;
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.pos_r {position: relative}
+.pos_a {position: absolute}
+.pos_f {position: fixed}
+
+
+/**/
+/**/
+body {
+    background: #f7f5f5;
+}

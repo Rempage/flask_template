@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="keywords" content="Farsee,Blog,Eric,Eric-Blog"/>
+	<meta name="description" content="豌豆智能家居"/>
+    <meta name="author" content="Eric"/>
+    <meta name="copyright" content="www.farsee.online"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="format-detection" content="address=no;">
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <title>豌豆智能</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <link href="{{ url_for('static', filename='css/wap.css') }}" rel="stylesheet">
+    {% block link %}{% endblock %}
+    {% block head_script %}{% endblock %}
+    <script type="text/javascript">
+    (function(doc, win) {
+        var docEl = doc.documentElement,
+            isIOS = navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+            dpr = isIOS ? Math.min(win.devicePixelRatio, 3) : 1,
+            dpr = window.top === window.self ? dpr : 1, //被iframe引用时，禁止缩放
+            dpr = 1,
+            scale = 1 / dpr,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+        docEl.dataset.dpr = dpr;
+        var metaEl = doc.createElement('meta');
+        metaEl.name = 'viewport';
+        metaEl.content = 'initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale;
+        docEl.firstElementChild.appendChild(metaEl);
+        var recalc = function() {
+            var width = docEl.clientWidth;
+            docEl.style.fontSize = 100 * (width / 750) + 'px';
+        };
+        recalc()
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+    })(document, window);
+    </script>
+</head>
+<body>
+    <div class="header">
+        {% block header %}{% endblock %}
+    </div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    <div class="footer">
+        {% block footer %}{% endblock %}
+    </div>
+
+    <script src="{{ url_for('static', filename='third/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wap.js') }}"></script>
+    <script src="{{ url_for('static', filename='third/moment/moment.min.js') }}"></script>
+    <script>
+        var csrftoken = $('meta[name=csrf-token]').attr('content')
+        {#验证成功， post请求全局 附加X-CSRFToken#}
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken)
+                }
+            }
+        });
+        $(document).ajaxStart(function () {
+        })
+    </script>
+    {% block script %}{% endblock %}
+</body>
+</html>
